@@ -11,3 +11,5 @@ Then we have the UC software node (from 1 to 6). These are the pods that should 
 - uc3-v11.yaml: configuration with pods on fixed hardware nodes.
 - uc3-v12.yaml: configuration with pods on free hardware nodes.
 
+To run the Use Case, see the decice_cmds.md documentation: [decice_cmds.md](./decice_cmds.md)
+
