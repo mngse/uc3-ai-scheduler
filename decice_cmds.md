@@ -1,6 +1,5 @@
 # Device Commands (minimal)
 
-This file is a minimal Markdown conversion of the original `decice_cmds.txt` and groups commands by node/terminal.
 We need to have 8 terminals that have an SSH connection to the E4 cluster (it can be the E4 controlplane). 
 Please do VPN first.
 
