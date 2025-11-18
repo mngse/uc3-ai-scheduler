@@ -134,5 +134,5 @@ VPN to E4 and run:
 Please check the IP address of the host of pod pod-uc31-10.
 
 ```bash
-scp e4_username@**<IP-of-host-running-pod-uc31-10>**:/mnt/data/* .
+scp e4_username@<IP-of-host-running-pod-uc31-10>:/mnt/data/* .
 ```
