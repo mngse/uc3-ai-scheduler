@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: uc3
+  name: uc3-ai-scheduler
 ---
 apiVersion: apps/v1
 kind: Deployment
