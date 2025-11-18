@@ -1,19 +1,20 @@
 # Device Commands (minimal)
 
 This file is a minimal Markdown conversion of the original `decice_cmds.txt` and groups commands by node/terminal.
+We need to have 8 terminals that have an SSH connection to the E4 cluster (it can be the E4 controlplane). 
+Please do VPN first.
 
-## Simulation env Node - HW10
-
-Terminal: setup and connect
+### Do it for all terminals:
 
 ```bash
-e4ssh
+ssh e4_username@<e4 node ip it can be controlplane>
 echo 'source <(kubectl completion bash)' >> ~/.bashrc
 source ~/.bashrc
 clear
-
-ssh mseyedkazemi@172.18.16.152
 ```
+## Simulation env Node - HW10
+
+Terminal: setup and connect
 
 Open 2 terminals
 
@@ -127,16 +128,11 @@ source install/setup.bash
 ros2 run decice_sat offboard_control
 ```
 
-## Copy data
-
-```bash
-scp mseyedkazemi@172.18.16.151:/mnt/data/* .
-```
-
 ## How to collect the final results
 
-VPN to E4 and run (replace placeholders):
+VPN to E4 and run:
+Please check the IP address of the host of pod pod-uc31-10.
 
 ```bash
-scp e4_username@<IP-of-host-running-pod-uc31-10>:/mnt/data/* .
+scp e4_username@**<IP-of-host-running-pod-uc31-10>**:/mnt/data/* .
 ```
