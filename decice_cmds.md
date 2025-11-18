@@ -22,7 +22,7 @@ source ~/.bashrc
 clear
 ```
 
-## Simulation env Node - NOT COSIDERED BY SCHEDULER
+## Simulation env Node - Not considered by the scheduler
 
 Terminal: setup and connect
 
@@ -126,7 +126,7 @@ source install/setup.bash
 ros2 run decice_sat yolo_workload --ros-args -p model_size:=nano
 ```
 
-## Node6 - HW edge
+## Node6 - HW edge, not considered by scheduler
 
 ```bash
 echo 'source <(kubectl completion bash)' >> ~/.bashrc

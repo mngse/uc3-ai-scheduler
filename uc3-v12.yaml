@@ -17,6 +17,8 @@ spec:
       labels:
         app: uc3
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: acnode10.e4red
       containers:
         - name: uc3step2
           image: sebastianomengozzi/uc3step2:SITL
@@ -139,6 +141,8 @@ spec:
       labels:
         app: uc3
     spec:
+      nodeSelector:
+        kubernetes.io/hostname: raspberrypi1
       containers:
         - name: uc3step2
           image: sebastianomengozzi/uc3step2:latest
