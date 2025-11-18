@@ -111,6 +111,8 @@ ros2 run decice_sat offboard_control
 
 
 
-
-
-scp mseyedkazemi@172.18.16.151:/mnt/data/* .
+### How collect the final results
+VPN to E4
+```
+scp e4_username@<IP of host of Pod uc31-10... > :/mnt/data/* .
+```
