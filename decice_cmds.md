@@ -13,7 +13,7 @@ kubectl apply -f uc3-v12.yaml -n uc3aischeduler
 We need to have 9 terminals that have an SSH connection to the E4 cluster (it can be the E4 controlplane). 
 Please do VPN first.
 
-### Do it for all terminals:
+## Do it for all terminals:
 
 ```bash
 ssh e4_username@<e4 node ip it can be controlplane>
@@ -21,7 +21,8 @@ echo 'source <(kubectl completion bash)' >> ~/.bashrc
 source ~/.bashrc
 clear
 ```
-## Simulation env Node - HW10
+
+## Simulation env Node - NOT COSIDERED BY SCHEDULER
 
 Terminal: setup and connect
 
@@ -51,7 +52,7 @@ kubectl exec -n uc3 sitl-10 -it -- /bin/bash
 MicroXRCEAgent udp4 -p 8888
 ```
 
-## UC Node1 - HW10
+## UC Node1 
 
 Node1 - Terminal 1
 
@@ -77,7 +78,7 @@ source install/setup.bash
 ros2 run decice_sat risk_image_publisher --ros-args -p scenario:=0
 ```
 
-## Node2 - HW11
+## Node2
 
 ```bash
 echo 'source <(kubectl completion bash)' >> ~/.bashrc
@@ -89,7 +90,7 @@ source install/setup.bash
 ros2 run decice_sat standard_image_publisher --ros-args -p scenario:=0
 ```
 
-## Node3 - HW11
+## Node3 
 
 ```bash
 echo 'source <(kubectl completion bash)' >> ~/.bashrc
@@ -101,7 +102,7 @@ source install/setup.bash
 ros2 run decice_sat image_processor
 ```
 
-## Node4 - HW12
+## Node4
 
 ```bash
 echo 'source <(kubectl completion bash)' >> ~/.bashrc
@@ -113,7 +114,7 @@ source install/setup.bash
 ros2 run decice_sat goal_sender
 ```
 
-## Node5 - HW edge
+## Node5 
 
 ```bash
 echo 'source <(kubectl completion bash)' >> ~/.bashrc
