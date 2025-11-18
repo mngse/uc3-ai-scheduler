@@ -1,0 +1,142 @@
+# Device Commands (minimal)
+
+This file is a minimal Markdown conversion of the original `decice_cmds.txt` and groups commands by node/terminal.
+
+## Simulation env Node - HW10
+
+Terminal: setup and connect
+
+```bash
+e4ssh
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+clear
+
+ssh mseyedkazemi@172.18.16.152
+```
+
+Open 2 terminals
+
+Terminal 1
+
+```bash
+clear
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 sitl-10 -it -- /bin/bash
+
+cd /home/user/PX4-Autopilot
+HEADLESS=1 make px4_sitl gz_x500
+```
+
+Terminal 2
+
+```bash
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 sitl-10 -it -- /bin/bash
+
+MicroXRCEAgent udp4 -p 8888
+```
+
+## UC Node1 - HW10
+
+Node1 - Terminal 1
+
+```bash
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc31-10 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat metrics_collector
+```
+
+Node1 - Terminal 2
+
+```bash
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc31-10 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat risk_image_publisher --ros-args -p scenario:=0
+```
+
+## Node2 - HW11
+
+```bash
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc32-11 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat standard_image_publisher --ros-args -p scenario:=0
+```
+
+## Node3 - HW11
+
+```bash
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc33-11 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat image_processor
+```
+
+## Node4 - HW12
+
+```bash
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc34-12 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat goal_sender
+```
+
+## Node5 - HW edge
+
+```bash
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc35-edge -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat yolo_workload --ros-args -p model_size:=nano
+```
+
+## Node6 - HW edge
+
+```bash
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc36-edge -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat offboard_control
+```
+
+## Copy data
+
+```bash
+scp mseyedkazemi@172.18.16.151:/mnt/data/* .
+```
+
+## How to collect the final results
+
+VPN to E4 and run (replace placeholders):
+
+```bash
+scp e4_username@<IP-of-host-running-pod-uc31-10>:/mnt/data/* .
+```
